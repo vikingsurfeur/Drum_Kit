@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 67.5%;
+}
+
+body {
+    background-color: #121212;
+}
+
+img {
+    display: block;
+    max-width: 50%;
+    margin: auto;
+}
+
+.drumkit {
+    padding: 1rem;
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+    .drumkit {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.pad {
+    background-image: radial-gradient(#e18174, #d15746);
+
+    border: none;
+    border-radius: 1rem;
+}
