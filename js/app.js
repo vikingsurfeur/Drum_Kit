@@ -12,20 +12,13 @@ const drums = new Howl({
     },
 });
 
-const drumkit = document.querySelector('.drumkit');
+const drumkit = document.querySelector(".drumkit");
 
 // LISTENERS
 
-drumkit.addEventListener('touchstart', () => {
-    if(event.target.classList.contains('pad')) {
-        let soundToPlay = event.target.dataset.sound;
+drumkit.addEventListener("touchstart", (e) => {
+    if (e.target.classList.contains("pad")) {
+        let soundToPlay = e.target.dataset.sound;
         drums.play(soundToPlay);
     }
-})
-
-drumkit.addEventListener('touchend', () => {
-    if(event.target.classList.contains('pad')) {
-        let soundToPlay = event.target.dataset.sound;
-        drums.play(soundToPlay);
-    }
-})
+});
