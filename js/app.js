@@ -12,7 +12,35 @@ const drums = new Howl({
     },
 });
 
-const drumkit = document.querySelector(".drumkit");
+const pad   = document.querySelectorAll('.pad'),
+    drumkit = document.querySelector(".drumkit");
+
+// CHOOSE DRUM PAD COLOR
+
+do {
+    var padColor = Number(prompt('Hey There! Choose your color Pad Buddy \n\n 1 - The Blue Pad \n\n 2 - The Orange Pad \n\n 3 - The Green Pad'));
+} while (padColor != 1 && padColor != 2 && padColor != 3);
+
+// FUNCTION PAD COLOR 
+
+function padColoring(padColor) {
+    if (padColor === 1) {
+        pad.forEach(button => {
+            button.classList.add('pad--blue');
+        });
+    }
+    else if (padColor === 2) {
+        pad.forEach(button => {
+            button.classList.add('pad--orange');
+        });
+    } else {
+        pad.forEach(button => {
+            button.classList.add('pad--green');
+        });
+    }
+}
+
+padColoring(padColor);
 
 // LISTENERS
 

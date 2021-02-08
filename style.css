@@ -40,12 +40,22 @@ img {
 }
 
 .pad {
-    background-image: radial-gradient(#e18174, #d15746);
-
     border: none;
     border-radius: 1rem;
 
     cursor: pointer;
+}
+
+.pad--orange {
+    background-image: radial-gradient(#e18174, #d15746);
+}
+
+.pad--green {
+    background-image: radial-gradient(#94da94, #28b428);
+}
+
+.pad--blue {
+    background-image: radial-gradient(#6275ca, #162f9c);
 }
 
 .pad:focus {
