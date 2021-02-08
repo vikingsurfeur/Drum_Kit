@@ -1,3 +1,5 @@
+// VARIABLES
+
 const drums = new Howl({
     src: ["./audio/drums.webm", "./audio/drums.mp3"],
     sprite: {
@@ -10,4 +12,20 @@ const drums = new Howl({
     },
 });
 
-drums.play('kick');
+const drumkit = document.querySelector('.drumkit');
+
+// LISTENERS
+
+drumkit.addEventListener('touchstart', () => {
+    if(event.target.classList.contains('pad')) {
+        let soundToPlay = event.target.dataset.sound;
+        drums.play(soundToPlay);
+    }
+})
+
+drumkit.addEventListener('touchend', () => {
+    if(event.target.classList.contains('pad')) {
+        let soundToPlay = event.target.dataset.sound;
+        drums.play(soundToPlay);
+    }
+})
