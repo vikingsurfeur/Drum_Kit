@@ -1,6 +1,6 @@
 // VARIABLES
 
-const drums = new Howl({
+const drumKitAcoustic = new Howl({
     src: ["./audio/drums.webm", "./audio/drums.mp3"],
     sprite: {
         clap: [0, 1365.578231292517],
@@ -12,13 +12,13 @@ const drums = new Howl({
     },
 });
 
-const pad   = document.querySelectorAll('.pad'),
+const pad = document.querySelectorAll('.pad'),
     drumkit = document.querySelector(".drumkit");
 
 // CHOOSE DRUM PAD COLOR
 
 do {
-    var padColor = Number(prompt('Hey There! Choose your color Pad Buddy \n\n 1 - The Blue Pad \n\n 2 - The Orange Pad \n\n 3 - The Green Pad'));
+    var padColor = Number(prompt('Hey There! Choose your color Pad Buddy\n\n 1 - The Blue Pad\n\n 2 - The Orange Pad\n\n 3 - The Green Pad\n\n'));
 } while (padColor != 1 && padColor != 2 && padColor != 3);
 
 // FUNCTION PAD COLOR 
@@ -42,11 +42,29 @@ function padColoring(padColor) {
 
 padColoring(padColor);
 
-// LISTENERS
+// CHOOSE YOUR DRUM KIT
 
-drumkit.addEventListener("touchstart", (e) => {
-    if (e.target.classList.contains("pad")) {
-        let soundToPlay = e.target.dataset.sound;
-        drums.play(soundToPlay);
+do {
+    var drumBank = Number(prompt('Ok! Well... \n\n Now, it\'s time to choose a drum kit !\n\n 1 - An Acoustic Drum Kit\n\n 2 - An Electric Drum Kit\n\n 3 - A Weird Drum Kit...'));
+} while (drumBank != 1 && drumBank != 2 && drumBank != 3);
+
+// FUNCTION DRUM KIT
+
+function addDrumBank(drumBank) {
+    if (drumBank === 1) {
+        drumkit.addEventListener("touchstart", (e) => {
+            if (e.target.classList.contains("pad")) {
+                let soundToPlay = e.target.dataset.sound;
+                drumKitAcoustic.play(soundToPlay);
+            }
+        });
+    } else if (drumBank === 2) {
+
+    } else {
+
     }
-});
+}
+
+addDrumBank(drumBank);
+
+
