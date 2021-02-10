@@ -67,13 +67,15 @@ function addDrumBank(drumBank) {
     if (drumBank === 1) {
         drumkit.addEventListener("touchstart", (e) => {
             if (e.target.classList.contains("pad")) {
+                e.preventDefault();
                 let soundToPlay = e.target.dataset.sound;
                 drumKitAcoustic.play(soundToPlay);
             }
         });
-    } else if (drumBank === 2) {
+    } else {
         drumkit.addEventListener("touchstart", (e) => {
             if (e.target.classList.contains("pad")) {
+                e.preventDefault();
                 let soundToPlay = e.target.dataset.sound;
                 drumKitElectronic.play(soundToPlay);
             }
