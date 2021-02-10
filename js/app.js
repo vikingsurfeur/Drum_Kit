@@ -1,7 +1,7 @@
 // VARIABLES
 
 const drumKitAcoustic = new Howl({
-    src: ["./audio/drums.webm", "./audio/drums.mp3"],
+    src: ["./audio/acoustic/drums.webm", "./audio/acoustic/drums.mp3"],
     sprite: {
         clap: [0, 1365.578231292517],
         closed_hi_hat: [3000, 961.6326530612245],
@@ -11,6 +11,10 @@ const drumKitAcoustic = new Howl({
         snare: [20000, 1260.2947845804983],
     },
 });
+
+// const drumKitElectronic;
+
+// const drumKitWeird;
 
 const pad = document.querySelectorAll('.pad'),
     drumkit = document.querySelector(".drumkit");
@@ -59,9 +63,19 @@ function addDrumBank(drumBank) {
             }
         });
     } else if (drumBank === 2) {
-
+        drumkit.addEventListener("touchstart", (e) => {
+            if (e.target.classList.contains("pad")) {
+                let soundToPlay = e.target.dataset.sound;
+                drumKitAcoustic.play(soundToPlay);
+            }
+        });
     } else {
-
+        drumkit.addEventListener("touchstart", (e) => {
+            if (e.target.classList.contains("pad")) {
+                let soundToPlay = e.target.dataset.sound;
+                drumKitAcoustic.play(soundToPlay);
+            }
+        });
     }
 }
 
